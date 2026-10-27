@@ -1,0 +1,14 @@
+# WordPress
+wp-config.php
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+*.log
+.env
+.htpasswd
+*.sql
+*.sql.gz
+.DS_Store
+Thumbs.db
+node_modules/
+vendor/
