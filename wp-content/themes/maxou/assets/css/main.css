@@ -258,12 +258,14 @@ footer a:hover,footer .ph:hover{color:var(--acc)}
 .fs-f button:hover{color:var(--acc)}
 .fs-f button[aria-pressed=true]{background:rgba(233,240,86,.14);color:var(--acc)}
 .fs-mob{display:none;min-height:40px;padding:0 1.2rem;border-radius:6px;background:var(--acc);color:var(--on);font-weight:600;font-size:.8125rem}
-/* mobile : bouton « Filtrer » flottant en bas à droite de l'écran, qui ouvre la liste des catégories au-dessus de lui */
-@media(max-width:700px){
+/* mobile (≤900px, comme le menu) : bouton « Filtrer » épinglé en bas à droite de l'écran —
+   mêmes retraits que le menu en haut (0,7rem du bas, 0,8rem de la droite) —
+   qui ouvre la liste des catégories au-dessus de lui */
+@media(max-width:900px){
 .fs-f,.fsel .fb-ar{display:none}
 .fs-mob{display:inline-flex;align-items:center}
-.fsel{position:fixed;top:auto;left:auto;right:1.1rem;bottom:calc(env(safe-area-inset-bottom,0px) + 1.1rem);height:auto;padding:0;justify-content:flex-end}
-body.admin-bar .fsel{bottom:calc(env(safe-area-inset-bottom,0px) + 1.1rem + 46px)}
+.fsel{position:fixed;top:auto;left:auto;right:.8rem;bottom:calc(env(safe-area-inset-bottom,0px) + .7rem);height:auto;padding:0;justify-content:flex-end}
+body.admin-bar .fsel{bottom:calc(env(safe-area-inset-bottom,0px) + .7rem + 46px)}
 .fsel-in{position:relative;margin-top:0}
 .fsel.open .fs-f{display:flex;flex-direction:column;position:absolute;right:0;transform:none;top:auto;bottom:calc(100% + .5rem);min-width:220px;max-height:60vh;overflow-y:auto;padding:.4rem;border-radius:10px;background:rgba(10,9,8,.94);border:1px solid var(--gb);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 .fsel.open .fs-f button{text-align:left}}
