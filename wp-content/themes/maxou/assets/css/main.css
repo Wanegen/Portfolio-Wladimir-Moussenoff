@@ -45,8 +45,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .nav{justify-content:flex-end}
 .pill,.pill.solid{position:static;gap:0;padding:0;background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
 .burger{background:rgba(10,9,8,.55);border:1px solid var(--gb);-webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%);border-radius:8px}
-/* logo WM visible à gauche, même retrait que le burger à droite ; pilule pleine largeur, toujours sans fond */
-.pill{flex:1;justify-content:space-between}
+.logo{display:none}
 .burger{display:grid}
 .menu{position:absolute;top:calc(100% + .5rem);left:.8rem;right:.8rem;flex-direction:column;align-items:stretch;gap:0;padding:1rem;border-radius:10px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:.3s;background:rgba(10,9,8,.92);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid var(--gb)}
 .pill.open .menu{opacity:1;visibility:visible;transform:none}
@@ -258,16 +257,12 @@ footer a:hover,footer .ph:hover{color:var(--acc)}
 .fs-f button:hover{color:var(--acc)}
 .fs-f button[aria-pressed=true]{background:rgba(233,240,86,.14);color:var(--acc)}
 .fs-mob{display:none;min-height:40px;padding:0 1.2rem;border-radius:6px;background:var(--acc);color:var(--on);font-weight:600;font-size:.8125rem}
-/* mobile (≤900px, comme le menu) : bouton « Filtrer » épinglé en bas à droite de l'écran —
-   mêmes retraits que le menu en haut (0,7rem du bas, 0,8rem de la droite) —
-   qui ouvre la liste des catégories au-dessus de lui */
-@media(max-width:900px){
+/* mobile : uniquement « Filtrer », qui ouvre la liste des catégories en dessous */
+@media(max-width:700px){
 .fs-f,.fsel .fb-ar{display:none}
 .fs-mob{display:inline-flex;align-items:center}
-.fsel{position:fixed;top:auto;left:auto;right:.8rem;bottom:calc(env(safe-area-inset-bottom,0px) + .7rem);height:auto;padding:0;justify-content:flex-end}
-body.admin-bar .fsel{bottom:calc(env(safe-area-inset-bottom,0px) + .7rem + 46px)}
-.fsel-in{position:relative;margin-top:0}
-.fsel.open .fs-f{display:flex;flex-direction:column;position:absolute;right:0;transform:none;top:auto;bottom:calc(100% + .5rem);min-width:220px;max-height:60vh;overflow-y:auto;padding:.4rem;border-radius:10px;background:rgba(10,9,8,.94);border:1px solid var(--gb);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.fsel-in{position:relative}
+.fsel.open .fs-f{display:flex;flex-direction:column;position:absolute;left:50%;transform:translateX(-50%);top:calc(100% + .5rem);min-width:220px;max-height:60vh;overflow-y:auto;padding:.4rem;border-radius:10px;background:rgba(10,9,8,.94);border:1px solid var(--gb);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
 .fsel.open .fs-f button{text-align:left}}
 
 /* ÉCRAN DE CHARGEMENT : fond « objectif » de la section Photographie, WM au centre, barre noir → jaune/vert */
@@ -292,12 +287,3 @@ html.mx-in .pt{transition:none}
 .sec-solo .h2{text-align:center}
 .btn-acc{min-height:56px;padding:0 2rem;font-size:1rem;background:var(--acc);border-color:var(--acc);color:var(--on)}
 .btn-acc:hover{background:var(--ink);border-color:var(--ink);color:var(--on)}
-
-/* MOBILE (≤700px) : tous les headings ~30 % plus petits, interligne 1.4 */
-@media(max-width:700px){
-.h2{font-size:min(36px,7.7vw);line-height:1.4}
-.cl .h2,.ct .h2{font-size:min(36px,6.3vw)}
-.nm{font-size:min(56px,8.4vw);line-height:1.4}
-.hero-70 .nm{font-size:min(39px,7vw)}
-.ph-t{font-size:min(56px,8.4vw);line-height:1.4}
-.sv-h,.cb h3,.fb{font-size:17px;line-height:1.4}}

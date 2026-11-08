@@ -66,6 +66,11 @@ add_action( 'wp_head', function () {
 	echo '<link rel="preload" href="' . esc_url( $uri . '/assets/fonts/Poppins-Regular.ttf' ) . '" as="font" type="font/ttf" crossorigin>' . "\n";
 }, 1 );
 
+/* Favicon : le W de la marque, servi depuis le thème. */
+add_action( 'wp_head', function () {
+	echo '<link rel="icon" type="image/png" href="' . esc_url( get_template_directory_uri() . '/assets/img/w.png' ) . '">' . "\n";
+}, 2 );
+
 /* Les pages se construisent par sections : l'éditeur de contenu classique est masqué. */
 add_action( 'init', function () {
 	remove_post_type_support( 'page', 'editor' );
